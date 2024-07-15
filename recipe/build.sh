@@ -1,7 +1,7 @@
 #!/bin/bash
 cd src
 make
-cp system.make ../tools/BasisGeneration
+cp system/system.make ../tools/BasisGeneration
 cd ../tools/BasisGeneration
 make
 cp system.make ../PostProcessing
