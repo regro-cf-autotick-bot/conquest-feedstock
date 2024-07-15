@@ -34,3 +34,29 @@ index 6f3509b2..b1ccafe2 100644
  	sed /"^mpi.o"/D makedeps.txt > deps.obj.inc
  
  #Target
+diff --git a/tools/PostProcessing/Makefile b/tools/PostProcessing/Makefile
+index f3330dda..3361270b 100644
+--- a/tools/PostProcessing/Makefile
++++ b/tools/PostProcessing/Makefile
+@@ -16,7 +16,7 @@ deps.obj: $(SRCS) system.make
+ 	$(ECHOSTR) '  character(len=*), parameter :: datestr="'`date`'"' >> datestamp.f90
+ 	sed "s/BBB/"`git symbolic-ref HEAD | cut -b 12-`"/" $(COMMENT) | sed "s/RRR/"`git describe --tags`"/" >> datestamp.f90
+ 	$(ECHOSTR) "end module datestamp" >> datestamp.f90
+-	./makedeps deps.obj datestamp.f90 $^
++	$(BUILD_PREFIX)/bin/perl makedeps deps.obj datestamp.f90 $^
+ 
+ include deps.obj
+
+diff --git a/tools/BasisGeneration/Makefile b/tools/BasisGeneration/Makefile
+index 020359289..8a1eea579 100644
+--- a/tools/BasisGeneration/Makefile
++++ b/tools/BasisGeneration/Makefile
+@@ -17,7 +17,7 @@ deps.obj: $(SRCS) system.make
+ 	$(ECHOSTR) '  character(len=*), parameter :: datestr="'`date`'"' >> datestamp.f90
+ 	sed "s/BBB/"`git symbolic-ref HEAD | cut -b 12-`"/" $(COMMENT) | sed "s/RRR/"`git describe --tags`"/" >> datestamp.f90
+ 	$(ECHOSTR) "end module datestamp" >> datestamp.f90
+-	./makedeps deps.obj datestamp.f90 $^
++	$(BUILD_PREFIX)/bin/perl makedeps deps.obj datestamp.f90 $^
+ 
+ include deps.obj
+ 
