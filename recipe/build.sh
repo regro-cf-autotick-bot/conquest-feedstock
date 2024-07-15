@@ -7,4 +7,6 @@ make
 cp system.make ../PostProcessing
 cd ../PostProcessing
 make
-cp ../bin/Conquest ${PREFIX}/bin/Conquest
+cd ../..
+mkdir -p ${PREFIX}/bin
+cp bin/* ${PREFIX}/bin
