@@ -20,8 +20,8 @@ cd pseudo-and-pao
 for f in $(find . -name Conquest_ion_input); do
      cd $(dirname $f)
      ../../../bin/MakeIonFiles
-     echo $(dirname $(dirname $f))
-     mkdir -p ${PREFIX}/share/conquest/"${$(dirname $(dirname $f)):1}"
-     cp *.ion ${PREFIX}/share/conquest/"${$(dirname $(dirname $f)):1}"
+     psuedotype=$(dirname $(dirname $f))
+     mkdir -p ${PREFIX}/share/conquest/"${psuedotype:1}"
+     cp *.ion ${PREFIX}/share/conquest/"${psuedotype:1}"
      cd ../..
 done
