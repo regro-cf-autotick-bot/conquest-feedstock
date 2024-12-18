@@ -29,7 +29,7 @@ requirements:
     - liblapack
     - fftw
     - scalapack
-    - libxc
+    - libxc <7.0
   run:
     - scalapack
 
